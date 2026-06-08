@@ -1,0 +1,1732 @@
+<!doctype html>
+<html lang="ru" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saidodilxon | Python & Backend Software Engineer Portfolio</title>
+    <meta name="description" content="Портфолио Saidodilxon - Python Developer, Backend Developer и Software Engineer. Разработка приложений, веб-сервисов и автоматизация." />
+    
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+              display: ["Space Grotesk", "sans-serif"],
+              mono: ["Fira Code", "ui-monospace", "SFMono-Regular", "monospace"]
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Lucide Icons Custom Loader script -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      /* Base resets */
+      html {
+        scroll-behavior: smooth;
+        background-color: #030712;
+        color: #f1f5f9;
+      }
+      body {
+        font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+        background-color: #030712;
+      }
+      ::selection {
+        background: rgba(59, 130, 246, 0.3);
+        color: #ffffff;
+      }
+
+      /* Custom gorgeous scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgba(3, 7, 18, 0.95);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(59, 130, 246, 0.2);
+        border-radius: 99px;
+        border: 2px solid rgba(3, 7, 18, 0.95);
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(59, 130, 246, 0.4);
+      }
+
+      /* Glassmorphism Bento panels */
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 1.5rem;
+      }
+      .glass-panel-interactive {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 1.5rem;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .glass-panel-interactive:hover {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(59, 130, 246, 0.3);
+        box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.15),
+                    inset 0 1px 1px 0 rgba(255, 255, 255, 0.05);
+        transform: translateY(-4px);
+      }
+
+      /* Glow & Grid overlays */
+      .neon-glow-blue {
+        box-shadow: 0 0 40px -10px rgba(59, 130, 246, 0.25);
+      }
+      .tech-grid {
+        background-size: 40px 40px;
+        background-image: 
+          linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      }
+      .radial-glow-1 {
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 65%);
+      }
+      .radial-glow-2 {
+        background: radial-gradient(circle, rgba(16, 185, 129, 0.05) 0%, transparent 65%);
+      }
+      .radial-glow-3 {
+        background: radial-gradient(circle, rgba(99, 102, 241, 0.06) 0%, transparent 65%);
+      }
+      .scanline::after {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%);
+        z-index: 2;
+        background-size: 100% 3px;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body class="bg-[#030712] text-slate-100 selection:bg-blue-500/30 overflow-x-hidden antialiased">
+
+    <!-- PRELOADER SEQUENCE MODAL -->
+    <div id="preloader-overlay" class="fixed inset-0 bg-[#030712] z-50 flex flex-col justify-center items-center font-mono px-6 scanline transition-opacity duration-700">
+      <div class="max-w-md w-full glass-panel p-6 rounded-lg border border-blue-500/20 relative overflow-hidden">
+        <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
+          <div class="flex items-center gap-2 text-blue-400">
+            <i data-lucide="terminal" class="w-5 h-5 animate-pulse"></i>
+            <span class="font-semibold text-xs uppercase tracking-wider text-blue-300">
+              Boot Sequence v2.6
+            </span>
+          </div>
+          <div class="flex gap-1.5">
+            <div class="w-2.5 h-2.5 rounded-full bg-red-500/60"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/60"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-green-500/60"></div>
+          </div>
+        </div>
+
+        <div id="preloader-logs" class="h-36 overflow-y-auto mb-4 text-xs text-slate-350 space-y-1.5">
+          <!-- Logs will be written progressively via script -->
+        </div>
+
+        <div class="space-y-1.5">
+          <div class="flex justify-between text-[10px] text-slate-400 uppercase tracking-widest font-semibold">
+            <span>Loading Modules</span>
+            <span id="preloader-pct" class="text-blue-400">0%</span>
+          </div>
+          <div class="w-full h-1 bg-slate-900 rounded-full overflow-hidden">
+            <div id="preloader-bar" class="h-full bg-gradient-to-r from-blue-500 via-indigo-500 to-emerald-500 rounded-full transition-all duration-300" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN PORTFOLIO SHELL -->
+    <div id="app-shell" class="relative min-h-screen hidden">
+      <!-- Full-screen Tech interactive Matrix Canvas Backdrop -->
+      <div id="tech-particles-bg" class="fixed inset-0 w-full h-full pointer-events-none overflow-hidden z-0">
+        <canvas id="matrix-canvas" class="block w-full h-full opacity-35 transition-opacity duration-1000"></canvas>
+      </div>
+
+      <!-- HEADER NAVIGATION -->
+      <header id="navbar-header" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 py-5 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between">
+            <button onclick="scrollToSection('home')" class="flex items-center gap-2 font-display font-bold text-lg md:text-xl tracking-tight text-white group cursor-pointer">
+              <div class="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center group-hover:border-blue-500/40 group-hover:bg-blue-500/20 transition-all duration-300">
+                <i data-lucide="terminal" class="w-4 h-4 text-blue-400 group-hover:scale-110 transition-transform"></i>
+              </div>
+              <span class="bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">saidodilxon</span><span class="text-blue-500 font-mono text-xs">.dev</span>
+            </button>
+
+            <!-- Desktop Nav Items -->
+            <nav class="hidden lg:flex items-center gap-8">
+              <button onclick="scrollToSection('home')" class="nav-btn font-sans text-sm font-medium tracking-wide transition-all duration-300 relative py-1.5 cursor-pointer text-blue-400" data-sec="home" data-t="navHome">Главная</button>
+              <button onclick="scrollToSection('about')" class="nav-btn font-sans text-sm font-medium tracking-wide transition-all duration-300 relative py-1.5 cursor-pointer text-slate-400 hover:text-white" data-sec="about" data-t="navAbout">Обо мне</button>
+              <button onclick="scrollToSection('technologies')" class="nav-btn font-sans text-sm font-medium tracking-wide transition-all duration-300 relative py-1.5 cursor-pointer text-slate-400 hover:text-white" data-sec="technologies" data-t="navTech">Технологии</button>
+              <button onclick="scrollToSection('projects')" class="nav-btn font-sans text-sm font-medium tracking-wide transition-all duration-300 relative py-1.5 cursor-pointer text-slate-400 hover:text-white" data-sec="projects" data-t="navProjects">Проекты</button>
+              <button onclick="scrollToSection('skills')" class="nav-btn font-sans text-sm font-medium tracking-wide transition-all duration-300 relative py-1.5 cursor-pointer text-slate-400 hover:text-white" data-sec="skills" data-t="navSkills">Навыки</button>
+              <button onclick="scrollToSection('contact')" class="nav-btn font-sans text-sm font-medium tracking-wide transition-all duration-300 relative py-1.5 cursor-pointer text-slate-400 hover:text-white" data-sec="contact" data-t="navContact">Контакты</button>
+            </nav>
+
+            <!-- Controls (Lang picker, action) -->
+            <div class="hidden lg:flex items-center gap-4">
+              <div class="relative">
+                <button onclick="toggleLangDropdown()" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 hover:border-white/10 hover:bg-white/10 transition-all text-xs font-mono font-medium text-slate-300 cursor-pointer uppercase">
+                  <i data-lucide="globe" class="w-3.5 h-3.5 text-blue-400"></i>
+                  <span id="current-lang-label">ru</span>
+                </button>
+                <div id="lang-dropdown" class="absolute right-0 mt-2 w-48 rounded-xl bg-slate-900 border border-white/10 p-1 shadow-2xl transition-all duration-200 transform scale-95 opacity-0 pointer-events-none">
+                  <button onclick="changeLanguage('ru')" class="w-full text-left px-3 py-2 rounded-lg text-xs font-sans text-slate-300 hover:bg-white/5 flex items-center justify-between">
+                    <span>RU • Русский</span><span id="indicator-ru" class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                  </button>
+                  <button onclick="changeLanguage('en')" class="w-full text-left px-3 py-2 rounded-lg text-xs font-sans text-slate-300 hover:bg-white/5 flex items-center justify-between">
+                    <span>EN • English</span><span id="indicator-en" class="w-1.5 h-1.5 rounded-full bg-blue-500 hidden"></span>
+                  </button>
+                  <button onclick="changeLanguage('uz')" class="w-full text-left px-3 py-2 rounded-lg text-xs font-sans text-slate-300 hover:bg-white/5 flex items-center justify-between">
+                    <span>UZ • O'zbek</span><span id="indicator-uz" class="w-1.5 h-1.5 rounded-full bg-blue-500 hidden"></span>
+                  </button>
+                </div>
+              </div>
+              <button onclick="scrollToSection('contact')" class="px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 font-sans text-xs font-semibold tracking-wider text-white shadow-lg shadow-blue-500/20 active:scale-95 transition-all duration-200 cursor-pointer" data-t="heroContactBtn">Связаться</button>
+            </div>
+
+            <!-- Mobile UI toggler -->
+            <div class="flex lg:hidden items-center gap-3">
+              <!-- Quick mobile translation click -->
+              <button onclick="rotateMobileLang()" class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-white/5 border border-white/5 text-xs font-mono text-slate-300 uppercase">
+                <i data-lucide="globe" class="w-3.5 h-3.5 text-blue-400"></i>
+                <span id="mobile-lang-label">ru</span>
+              </button>
+              <button onclick="toggleMobileMenu()" class="w-9 h-9 flex items-center justify-center rounded-lg bg-white/5 border border-white/5 text-slate-350">
+                <i id="mobile-menu-icon" data-lucide="menu" class="w-5 h-5"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Drawer menu -->
+        <div id="mobile-menu-panel" class="hidden fixed inset-x-0 top-[64px] bg-[#030712]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl z-40 transition-all duration-300 origin-top transform scale-y-0 opacity-0">
+          <div class="px-4 pt-4 pb-6 space-y-2">
+            <button onclick="mobileNavRedirect('home')" class="w-full text-left px-4 py-3 rounded-xl font-sans text-sm font-medium tracking-wide text-blue-400 border-l-2 border-blue-500" data-t="navHome">Главная</button>
+            <button onclick="mobileNavRedirect('about')" class="w-full text-left px-4 py-3 rounded-xl font-sans text-sm font-medium tracking-wide text-slate-400 hover:bg-white/5" data-t="navAbout">Обо мне</button>
+            <button onclick="mobileNavRedirect('technologies')" class="w-full text-left px-4 py-3 rounded-xl font-sans text-sm font-medium tracking-wide text-slate-400 hover:bg-white/5" data-t="navTech">Технологии</button>
+            <button onclick="mobileNavRedirect('projects')" class="w-full text-left px-4 py-3 rounded-xl font-sans text-sm font-medium tracking-wide text-slate-400 hover:bg-white/5" data-t="navProjects">Проекты</button>
+            <button onclick="mobileNavRedirect('skills')" class="w-full text-left px-4 py-3 rounded-xl font-sans text-sm font-medium tracking-wide text-slate-400 hover:bg-white/5" data-t="navSkills">Навыки</button>
+            <button onclick="mobileNavRedirect('contact')" class="w-full text-left px-4 py-3 rounded-xl font-sans text-sm font-medium tracking-wide text-slate-400 hover:bg-white/5" data-t="navContact">Контакты</button>
+            <div class="pt-4 border-t border-white/5">
+              <button onclick="mobileNavRedirect('contact')" class="w-full py-3 rounded-xl bg-blue-600 text-white font-sans text-sm font-semibold text-center tracking-wide" data-t="heroContactBtn">Связаться</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="relative z-10">
+        <!-- HERO SECTION -->
+        <section id="home" class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
+          <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full radial-glow-1 select-none pointer-events-none -translate-x-1/2 -translate-y-1/2"></div>
+          <div class="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] rounded-full radial-glow-3 select-none pointer-events-none translate-x-1/2 translate-y-1/2"></div>
+          <div class="absolute inset-0 tech-grid select-none pointer-events-none opacity-40"></div>
+
+          <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-8">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-mono font-medium text-blue-300 backdrop-blur-md select-none tracking-wider uppercase shadow-[0_0_15px_-3px_rgba(59,130,246,0.2)]">
+              <i data-lucide="terminal" class="w-3.5 h-3.5 text-blue-400 animate-pulse"></i>
+              <span>Python & Systems Engineer</span>
+            </div>
+
+            <div class="space-y-4">
+              <h1 class="font-display text-5xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight text-white uppercase">
+                <span class="block bg-gradient-to-b from-white via-slate-100 to-slate-300 bg-clip-text text-transparent" data-t="heroTitle">Saidodilxon</span>
+              </h1>
+              <p class="font-mono text-sm sm:text-base lg:text-lg font-medium text-blue-400 tracking-wider max-w-3xl mx-auto uppercase" data-t="heroSubtitle">Python Developer • Backend Developer • Software Engineer</p>
+            </div>
+
+            <p class="font-sans text-base sm:text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-light" data-t="heroDesc">
+              Разрабатываю приложения, веб-сервисы, автоматизацию и программные решения на Python. Постоянно изучаю новые технологии и создаю полезные проекты.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+              <button onclick="scrollToSection('projects')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-blue-600 hover:bg-blue-500 font-sans text-sm font-semibold tracking-wider text-white shadow-xl shadow-blue-500/20 hover:shadow-blue-500/35 hover:scale-[1.02] active:scale-95 transition-all duration-300 cursor-pointer">
+                <span data-t="heroProjectsBtn">Посмотреть проекты</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+              <button onclick="scrollToSection('contact')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 font-sans text-sm font-semibold tracking-wider text-slate-200 hover:text-white hover:scale-[1.02] active:scale-95 transition-all duration-300 cursor-pointer">
+                <i data-lucide="message-square" class="w-4 h-4 text-blue-400"></i>
+                <span data-t="heroContactBtn">Связаться</span>
+              </button>
+            </div>
+          </div>
+
+          <div onclick="scrollToSection('about')" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 cursor-pointer select-none z-20 opacity-60 hover:opacity-100 transition-opacity">
+            <span class="font-mono text-[10px] uppercase tracking-widest text-slate-500" data-t="heroScrollDown">Листайте вниз</span>
+            <div class="w-5 h-8 rounded-full border-2 border-slate-700 p-1 flex justify-center mt-1">
+              <div class="w-1 h-2 rounded-full bg-blue-400 animate-bounce"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="py-24 relative overflow-hidden border-t border-white/5">
+          <div class="absolute top-1/2 right-0 w-[450px] h-[450px] rounded-full radial-glow-2 select-none pointer-events-none translate-x-1/3 -translate-y-1/2"></div>
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center md:text-left mb-16 space-y-3">
+              <div class="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-widest text-blue-400">
+                <i data-lucide="user" class="w-3.5 h-3.5"></i>
+                <span>01 / <span data-t="navAbout">Обо мне</span></span>
+              </div>
+              <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white uppercase" data-t="aboutHeading">Обо мне</h2>
+              <div class="w-12 h-1 bg-blue-500 rounded mx-auto md:mx-0"></div>
+              <p class="font-sans text-sm sm:text-base text-slate-400 font-light max-w-2xl" data-t="aboutSub">Качество. Производительность. Архитектура.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+              <!-- Grid item 1 (About Card) -->
+              <div class="col-span-1 md:col-span-4 flex flex-col h-full">
+                <div class="relative w-full h-full min-h-[380px] rounded-3xl overflow-hidden glass-panel border border-white/10 p-6 flex flex-col justify-between neon-glow-blue cursor-default group hover:scale-[1.015] transition-transform duration-400">
+                  <div class="absolute top-3 left-3 w-3 h-3 border-t-2 border-l-2 border-blue-500/40"></div>
+                  <div class="absolute top-3 right-3 w-3 h-3 border-t-2 border-r-2 border-blue-500/40"></div>
+                  <div class="absolute bottom-3 left-3 w-3 h-3 border-b-2 border-l-2 border-blue-500/40"></div>
+                  <div class="absolute bottom-3 right-3 w-3 h-3 border-b-2 border-r-2 border-blue-500/40"></div>
+
+                  <div class="h-60 w-full rounded-2xl bg-slate-900/40 border border-white/5 flex flex-col items-center justify-center relative overflow-hidden group-hover:border-blue-500/25 transition-all duration-500">
+                    <div class="absolute inset-0 tech-grid opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                    <div class="absolute w-24 h-24 rounded-full border border-blue-500/20 flex items-center justify-center bg-blue-500/5">
+                      <i data-lucide="terminal" class="w-10 h-10 text-blue-400 group-hover:scale-110 transition-all duration-300"></i>
+                    </div>
+                    <span class="absolute bottom-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-mono text-emerald-400 uppercase tracking-widest font-semibold">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                      Available for Hire
+                    </span>
+                  </div>
+
+                  <div class="space-y-2 mt-4">
+                    <p class="font-display text-xl font-bold tracking-tight text-white uppercase flex items-center gap-2">
+                      <span>saidodilxon</span>
+                      <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+                    </p>
+                    <div class="space-y-1.5 text-xs font-mono text-slate-400">
+                      <div class="flex justify-between border-b border-white/5 pb-1.5">
+                        <span data-t="aboutRoleTitle">Специализация:</span>
+                        <span class="text-white font-medium" data-t="aboutRoleVal">Backend Developer (Python)</span>
+                      </div>
+                      <div class="flex justify-between pt-1">
+                        <span class="flex items-center gap-1">
+                          <i data-lucide="map-pin" class="w-3 h-3 text-red-400"></i>
+                          <span data-t="aboutLocTitle">Локация:</span>
+                        </span>
+                        <span class="text-white font-medium" data-t="aboutLocVal">Ташкент, Узбекистан</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Grid item 2 (Prose BIO) -->
+              <div class="col-span-1 md:col-span-8 flex flex-col h-full">
+                <div class="glass-panel border border-white/10 p-6 sm:p-8 rounded-3xl flex flex-col justify-between h-full hover:scale-[1.005] transition-transform duration-450">
+                  <div>
+                    <div class="space-y-4 font-sans text-slate-300 text-base leading-relaxed font-light">
+                      <p id="about-prose-text1" data-t="aboutText1">Я увлечённый Python-разработчик, специализирующийся на проектировании масштабируемых бэкенд-систем, оптимизации баз данных и автоматизации сложных процессов. Мой приоритет — высокая производительность и чистота архитектуры приложений.</p>
+                      <p id="about-prose-text2" data-t="aboutText2">Я верю, что хороший софт должен решать реальные задачи бизнеса, быть легко расширяемым и легко поддерживаемым. Постоянно совершенствую свои навыки, слежу за трендами и применяю современные паттерны проектирования на практике.</p>
+                    </div>
+
+                    <ul class="space-y-3.5 font-sans text-sm text-slate-300 mt-6" id="about-bullets-holder">
+                      <!-- Loaded via translation mapper dynamically -->
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Grid stats row (Exp, Projs, Rating) -->
+              <div class="col-span-1 md:col-span-4">
+                <div class="glass-panel p-6 rounded-3xl border border-white/10 flex flex-col justify-center items-center group hover:border-blue-500/20 transition-all duration-300 cursor-default h-full">
+                  <div class="p-3 rounded-2xl bg-white/5 text-blue-400 mb-3 group-hover:scale-110 transition-transform">
+                    <i data-lucide="briefcase" class="w-6 h-6"></i>
+                  </div>
+                  <span class="text-3xl sm:text-4xl font-display font-extrabold tracking-tight bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent" data-t="aboutExpYear">3+</span>
+                  <span class="text-[10px] font-mono uppercase tracking-widest text-slate-400 text-center mt-2 pb-1" data-t="aboutExpText">года опыта</span>
+                </div>
+              </div>
+              <div class="col-span-1 md:col-span-4">
+                <div class="glass-panel p-6 rounded-3xl border border-white/10 flex flex-col justify-center items-center group hover:border-blue-500/20 transition-all duration-300 cursor-default h-full">
+                  <div class="p-3 rounded-2xl bg-white/5 text-blue-400 mb-3 group-hover:scale-110 transition-transform">
+                    <i data-lucide="award" class="w-6 h-6"></i>
+                  </div>
+                  <span class="text-3xl sm:text-4xl font-display font-extrabold tracking-tight bg-gradient-to-r from-indigo-500 to-emerald-500 bg-clip-text text-transparent" data-t="aboutProjNum">30+</span>
+                  <span class="text-[10px] font-mono uppercase tracking-widest text-slate-400 text-center mt-2 pb-1" data-t="aboutProjText">проектов сдано</span>
+                </div>
+              </div>
+              <div class="col-span-1 md:col-span-4">
+                <div class="glass-panel p-6 rounded-3xl border border-white/10 flex flex-col justify-center items-center group hover:border-blue-500/20 transition-all duration-300 cursor-default h-full">
+                  <div class="p-3 rounded-2xl bg-white/5 text-blue-400 mb-3 group-hover:scale-110 transition-transform">
+                    <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                  </div>
+                  <span class="text-3xl sm:text-4xl font-display font-extrabold tracking-tight bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent" data-t="aboutClientNum">100%</span>
+                  <span class="text-[10px] font-mono uppercase tracking-widest text-slate-400 text-center mt-2 pb-1" data-t="aboutClientText">довольных отзывов</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CATEGORIES TECHSTACK SECTION -->
+        <section id="technologies" class="py-24 relative overflow-hidden border-t border-white/5">
+          <div class="absolute top-1/2 left-0 w-[500px] h-[500px] rounded-full radial-glow-1 select-none pointer-events-none -translate-x-1/2 -translate-y-1/2"></div>
+          <div class="absolute inset-0 tech-grid select-none pointer-events-none opacity-20"></div>
+
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 space-y-3">
+              <div class="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-widest text-blue-400">
+                <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+                <span>02 / <span data-t="navTech">Технологии</span></span>
+              </div>
+              <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white uppercase text-center" data-t="techHeading">Мой стек</h2>
+              <div class="w-12 h-1 bg-blue-500 rounded mx-auto"></div>
+              <p class="font-sans text-sm sm:text-base text-slate-400 font-light max-w-2xl mx-auto" data-t="techSub">Инструменты и технологии, которые я использую для решения задач</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6" id="bento-tech-grid">
+              <!-- Rendered Dynamically via JS categories -->
+            </div>
+          </div>
+        </section>
+
+        <!-- PROJECTS SHOWCASE SECTION -->
+        <section id="projects" class="py-24 relative overflow-hidden border-t border-white/5">
+          <div class="absolute top-1/4 right-1/4 w-[550px] h-[550px] rounded-full radial-glow-3 select-none pointer-events-none translate-x-1/2 -translate-y-1/2"></div>
+          <div class="absolute inset-0 tech-grid select-none pointer-events-none opacity-25"></div>
+
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 space-y-3">
+              <div class="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-widest text-blue-400">
+                <i data-lucide="folder-git-2" class="w-3.5 h-3.5"></i>
+                <span>03 / <span data-t="navProjects">Проекты</span></span>
+              </div>
+              <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white uppercase" data-t="projectsHeading">Мои проекты</h2>
+              <div class="w-12 h-1 bg-blue-500 rounded mx-auto"></div>
+              <p class="font-sans text-sm sm:text-base text-slate-400 font-light max-w-2xl mx-auto" data-t="projectsSub">Последние реализованные приложения и веб-сервисы</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6" id="bento-projects-container">
+              <!-- Dynamically mapped from projects data -->
+            </div>
+          </div>
+        </section>
+
+        <!-- EXPERIENCE & SKILLS TIMELINE SECTION -->
+        <section id="skills" class="py-24 relative overflow-hidden border-t border-white/5">
+          <div class="absolute top-1/2 left-0 w-[450px] h-[450px] rounded-full radial-glow-2 select-none pointer-events-none -translate-x-1/2 -translate-y-1/2"></div>
+          <div class="absolute inset-0 tech-grid select-none pointer-events-none opacity-25"></div>
+
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center md:text-left mb-16 space-y-3">
+              <div class="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-widest text-blue-400">
+                <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+                <span>04 / <span data-t="navSkills">Навыки</span></span>
+              </div>
+              <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white uppercase" data-t="skillsHeading">Опыт и Навыки</h2>
+              <div class="w-12 h-1 bg-blue-500 rounded mx-auto md:mx-0"></div>
+              <p class="font-sans text-sm sm:text-base text-slate-400 font-light max-w-2xl" data-t="skillsSub">Глубокая экспертиза в технологиях и процессах</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+              <!-- Left side: competency progress bars -->
+              <div class="col-span-1 lg:col-span-6">
+                <div class="glass-panel p-6 sm:p-8 border border-white/10 bg-slate-900/15 rounded-3xl h-full flex flex-col justify-between hover:border-blue-500/20 transition-all duration-300">
+                  <div>
+                    <h3 class="font-display text-lg font-bold tracking-tight text-white uppercase flex items-center gap-2 mb-6 border-b border-white/5 pb-3">
+                      <i data-lucide="code-2" class="w-5 h-5 text-blue-400"></i>
+                      <span data-t="skillsActiveExp">Интерактивный радар компетенций</span>
+                    </h3>
+                    <div class="space-y-6" id="competency-bars-container">
+                      <!-- Rendered dynamically -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right side: vertical experience timelines -->
+              <div class="col-span-1 lg:col-span-6">
+                <div class="glass-panel p-6 sm:p-8 border border-white/10 bg-slate-900/15 rounded-3xl h-full flex flex-col justify-between hover:border-blue-500/20 transition-all duration-300">
+                  <div>
+                    <h3 class="font-display text-lg font-bold tracking-tight text-white uppercase flex items-center gap-2 mb-6 border-b border-white/5 pb-3">
+                      <i data-lucide="award" class="w-5 h-5 text-emerald-400"></i>
+                      <span data-t="skillsTimelineTitle">Карьерный путь и обучение</span>
+                    </h3>
+                    <div class="relative pl-6 border-l-2 border-slate-800 space-y-8" id="timelines-container">
+                      <!-- Loaded dynamically -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECURE DISPATCHER/CONTACTS SECTION -->
+        <section id="contact" class="py-24 relative overflow-hidden border-t border-white/5">
+          <div class="absolute top-1/2 right-1/4 w-[500px] h-[500px] rounded-full radial-glow-1 select-none pointer-events-none translate-x-1/2 -translate-y-1/2"></div>
+          <div class="absolute inset-0 tech-grid select-none pointer-events-none opacity-20"></div>
+
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center md:text-left mb-16 space-y-3">
+              <div class="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-widest text-blue-400">
+                <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+                <span>05 / <span data-t="navContact">Контакты</span></span>
+              </div>
+              <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white uppercase" data-t="contactHeading">Контакты</h2>
+              <div class="w-12 h-1 bg-blue-500 rounded mx-auto md:mx-0"></div>
+              <p class="font-sans text-sm sm:text-base text-slate-400 font-light max-w-2xl" data-t="contactSub">Готовы обсудить интересный проект или задачу? Свяжитесь со мной!</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              <!-- Left: cards options -->
+              <div class="col-span-1 lg:col-span-5 space-y-4">
+                <!-- GitHub Card -->
+                <div class="glass-panel p-5 rounded-3xl border border-white/10 bg-slate-900/15 flex items-start gap-4 hover:bg-slate-900/30 hover:border-purple-500/35 hover:shadow-purple-500/10 hover:shadow-lg transition-all duration-300 relative group">
+                  <div class="p-3 rounded-2xl bg-white/5 text-blue-400 group-hover:bg-blue-500/10 group-hover:scale-110 transition-all duration-205">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                  </div>
+                  <div class="space-y-1 flex-grow">
+                    <span class="font-display text-sm font-bold text-white uppercase tracking-wider">GitHub</span>
+                    <a href="https://github.com/SaidOdilkhon-dev" target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-blue-400 hover:text-blue-300 transition-colors block">Said0dilkhon</a>
+                    <p class="font-sans text-xs text-slate-500 font-light" data-t="contactCardGithub">Исходный код и примеры проектов</p>
+                  </div>
+                  <button onclick="copyToClipboard('https://github.com/Said0dilkhon', 'github')" class="p-1.5 rounded-full bg-[#030712]/50 border border-white/10 text-slate-400 hover:text-white hover:border-white/20 active:scale-95 transition-all text-xs h-7 w-7 flex items-center justify-center relative cursor-pointer" title="Copy link">
+                    <i id="copy-icon-github" data-lucide="copy" class="w-3.5 h-3.5"></i>
+                  </button>
+                </div>
+
+                <!-- Email Card -->
+                <div class="glass-panel p-5 rounded-3xl border border-white/10 bg-slate-900/15 flex items-start gap-4 hover:bg-slate-900/30 hover:border-rose-500/35 hover:shadow-rose-500/10 hover:shadow-lg transition-all duration-300 relative group">
+                  <div class="p-3 rounded-2xl bg-white/5 text-blue-400 group-hover:bg-blue-500/10 group-hover:scale-110 transition-all duration-205">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                  </div>
+                  <div class="space-y-1 flex-grow">
+                    <span class="font-display text-sm font-bold text-white uppercase tracking-wider">Email</span>
+                    <a href="mailto:saidodilkhon2@gmail.com" target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-blue-400 hover:text-blue-300 transition-colors block">saidodilkhon2@gmail.com</a>
+                    <p class="font-sans text-xs text-slate-500 font-light" data-t="contactCardEmail">Прямая почтовая связь</p>
+                  </div>
+                  <button onclick="copyToClipboard('saidodilkhon2@gmail.com', 'email')" class="p-1.5 rounded-full bg-[#030712]/50 border border-white/10 text-slate-400 hover:text-white hover:border-white/20 active:scale-95 transition-all text-xs h-7 w-7 flex items-center justify-center relative cursor-pointer" title="Copy mail">
+                    <i id="copy-icon-email" data-lucide="copy" class="w-3.5 h-3.5"></i>
+                  </button>
+                </div>
+
+                <!-- Telegram Card -->
+                <div class="glass-panel p-5 rounded-3xl border border-white/10 bg-slate-900/15 flex items-start gap-4 hover:bg-slate-900/30 hover:border-sky-500/35 hover:shadow-sky-500/10 hover:shadow-lg transition-all duration-300 relative group">
+                  <div class="p-3 rounded-2xl bg-white/5 text-blue-400 group-hover:bg-blue-500/10 group-hover:scale-110 transition-all duration-205">
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                  </div>
+                  <div class="space-y-1 flex-grow">
+                    <div class="flex items-center gap-2">
+                      <span class="font-display text-sm font-bold text-white uppercase tracking-wider">Telegram</span>
+                      <span class="px-2 py-0.5 rounded-full bg-sky-500/10 border border-sky-500/20 text-[8px] font-mono font-bold uppercase tracking-widest text-sky-400 select-none">Fastest Response</span>
+                    </div>
+                    <a href="https://t.me/Said013_00" target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-blue-400 hover:text-blue-300 transition-colors block">@Said013_00</a>
+                    <p class="font-sans text-xs text-slate-500 font-light" data-t="contactCardTelegram">Быстрый ответ в мессенджере</p>
+                  </div>
+                  <button onclick="copyToClipboard('https://t.me/Said013_00', 'telegram')" class="p-1.5 rounded-full bg-[#030712]/50 border border-white/10 text-slate-400 hover:text-white hover:border-white/20 active:scale-95 transition-all text-xs h-7 w-7 flex items-center justify-center relative cursor-pointer" title="Copy username">
+                    <i id="copy-icon-telegram" data-lucide="copy" class="w-3.5 h-3.5"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Right: direct dispatcher form -->
+              <div class="col-span-1 lg:col-span-7">
+                <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 bg-slate-900/15 relative overflow-hidden flex flex-col justify-between h-full">
+                  <div class="absolute inset-0 tech-grid opacity-10 pointer-events-none select-none"></div>
+
+                  <h3 class="font-display text-lg font-bold tracking-tight text-white uppercase flex items-center gap-2 mb-6 border-b border-white/5 pb-3">
+                    <i data-lucide="message-square" class="w-4 h-4 text-blue-400"></i>
+                    <span data-t="contactFormTitle">Написать сообщение</span>
+                  </h3>
+
+                  <form onsubmit="handleFormSubmission(event)" class="space-y-4 relative z-10">
+                    <div class="space-y-1.5">
+                      <label class="block text-xs font-mono font-semibold uppercase tracking-wider text-slate-400" data-t="contactName">Ваше имя</label>
+                      <input id="form-input-name" type="text" required class="w-full px-4 py-3 rounded-2xl bg-[#030712]/50 border border-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm placeholder-slate-600 focus:outline-none transition-all duration-300 font-sans" placeholder="Saidodilxon" />
+                    </div>
+
+                    <div class="space-y-1.5">
+                      <label class="block text-xs font-mono font-semibold uppercase tracking-wider text-slate-400" data-t="contactEmail">Ваш Email</label>
+                      <input id="form-input-email" type="email" required class="w-full px-4 py-3 rounded-2xl bg-[#030712]/50 border border-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm placeholder-slate-600 focus:outline-none transition-all duration-300 font-sans" placeholder="example@gmail.com" />
+                    </div>
+
+                    <div class="space-y-1.5">
+                      <label class="block text-xs font-mono font-semibold uppercase tracking-wider text-slate-400" data-t="contactMsg">Сообщение</label>
+                      <textarea id="form-input-message" required rows="4" class="w-full px-4 py-3 rounded-2xl bg-[#030712]/50 border border-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm placeholder-slate-600 focus:outline-none transition-all duration-300 font-sans resize-none" placeholder="Let's build a software together..."></textarea>
+                    </div>
+
+                    <!-- Alerts panel -->
+                    <div id="form-alert-success" class="hidden p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/25 text-xs text-emerald-400 font-medium flex items-center gap-2">
+                      <i data-lucide="sparkles" class="w-4 h-4 text-emerald-400"></i>
+                      <span data-t="contactSuccess">Сообщение успешно отправлено!</span>
+                    </div>
+
+                    <button id="form-submit-btn" type="submit" class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold tracking-wider hover:shadow-lg hover:shadow-blue-500/20 active:scale-95 transition-all duration-300 cursor-pointer">
+                      <span id="submit-btn-text" data-t="contactSendBtn">Отправить сообщение</span>
+                      <i id="submit-btn-icon" data-lucide="send" class="w-4 h-4 text-blue-200"></i>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- PRO FOOTER SUMMARY -->
+      <footer class="border-t border-white/5 py-12 relative z-10 bg-slate-950/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex flex-col items-center md:items-start gap-1">
+            <span class="font-display font-bold text-base text-white tracking-tight uppercase">Saidodilxon <span class="text-blue-500 font-mono text-xs font-semibold">.dev</span></span>
+            <span class="text-xs text-slate-500 font-mono">Python & Systems Development Suite</span>
+          </div>
+
+          <p class="text-xs text-slate-500 text-center md:text-right font-sans">
+            &copy; <span id="current-year">2026</span> Saidodilxon. <span data-t="footerText">Все права защищены.</span>
+          </p>
+        </div>
+      </footer>
+
+      <!-- FLOAT TOP BUTTON -->
+      <button id="floating-scroll-top" onclick="window.scrollTo({top:0, behavior:'smooth'})" class="fixed bottom-6 right-6 z-40 p-3 rounded-full bg-blue-600/10 hover:bg-blue-600 border border-blue-500/20 hover:border-blue-500 text-blue-400 hover:text-white shadow-lg active:scale-95 transition-all duration-300 backdrop-blur-md cursor-pointer hidden" title="Scroll to top">
+        <i data-lucide="chevron-up" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- GLASSMORPH DETAILED MODAL OVERLAY -->
+    <div id="project-detail-overlay" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 select-none">
+      <div onclick="closeProjectModal()" class="absolute inset-0 bg-slate-950/80 backdrop-blur-md cursor-pointer"></div>
+      <div class="relative w-full max-w-2xl bg-[#090911] border border-white/10 rounded-3xl overflow-hidden shadow-2xl z-10 flex flex-col scanline text-left max-h-[85vh]">
+        
+        <div class="relative h-48 sm:h-56 bg-slate-950 overflow-hidden">
+          <img id="modal-project-img" src="" alt="" class="w-full h-full object-cover opacity-60" />
+          <button onclick="closeProjectModal()" class="absolute top-4 right-4 p-2 rounded-full bg-slate-950/75 border border-white/10 hover:border-white/25 hover:bg-slate-900 text-slate-300 hover:text-white cursor-pointer active:scale-95 transition-all h-9 w-9 flex items-center justify-center">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+          <div class="absolute bottom-4 left-4 inline-flex items-center gap-2 px-3 py-1 rounded bg-[#030712]/75 border border-white/10 font-mono text-xs uppercase tracking-wider text-blue-400 backdrop-blur-sm">
+            <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+            <span>Production Stable</span>
+          </div>
+        </div>
+
+        <div class="p-6 overflow-y-auto space-y-6 scrollbar-thin max-h-[50vh]">
+          <div class="space-y-2">
+            <h3 id="modal-project-title" class="font-display text-xl sm:text-2xl font-extrabold tracking-tight text-white uppercase"></h3>
+            <p id="modal-project-desc" class="font-sans text-sm text-slate-400 font-light leading-relaxed"></p>
+          </div>
+
+          <div class="space-y-3">
+            <span class="flex items-center gap-2 font-display text-xs font-bold text-blue-400 uppercase tracking-widest">
+              <i data-lucide="award" class="w-4 h-4"></i>
+              <span data-t="projectModalFeatures">Ключевые особенности и функции:</span>
+            </span>
+            <div id="modal-features-list" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <!-- Rendered via js -->
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 border-t border-white/5 pt-6">
+            <div class="space-y-2">
+              <span class="flex items-center gap-2 font-display text-xs font-bold text-blue-400 uppercase tracking-widest">
+                <i data-lucide="layers" class="w-4 h-4"></i>
+                <span data-t="projectModalTech">Технологический стек:</span>
+              </span>
+              <div id="modal-tech-list" class="flex flex-wrap gap-1.5">
+                <!-- Rendered -->
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <span class="flex items-center gap-2 font-display text-xs font-bold text-blue-400 uppercase tracking-widest">
+                <i data-lucide="terminal" class="w-4 h-4"></i>
+                <span data-t="projectModalRole">Моя роль в проекте:</span>
+              </span>
+              <p id="modal-project-role" class="font-sans text-xs text-slate-400 leading-relaxed"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-6 py-4 border-t border-white/5 bg-slate-950/40 flex items-center justify-between gap-4">
+          <a id="modal-project-github" href="" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 font-sans text-xs font-semibold text-white tracking-wide transition-colors">
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            <span data-t="projectLinkBtn">Открыть репозиторий</span>
+          </a>
+          <button onclick="closeProjectModal()" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 font-sans text-xs font-semibold text-slate-400 hover:text-white transition-colors cursor-pointer" data-t="projectModalClose">Закрыть</button>
+        </div>
+
+      </div>
+    </div>
+
+
+    <script>
+      // CENTRAL TRANSLATIONS POOL DATA
+      const translations = {
+        ru: {
+          navHome: "Главная",
+          navAbout: "Обо мне",
+          navTech: "Технологии",
+          navSkills: "Навыки",
+          navProjects: "Проекты",
+          navContact: "Контакты",
+          heroTitle: "Saidodilxon",
+          heroSubtitle: "Python Developer • Backend Developer • Software Engineer",
+          heroDesc: "Разрабатываю приложения, веб-сервисы, автоматизацию и программные решения на Python. Постоянно изучаю новые технологии и создаю полезные проекты.",
+          heroProjectsBtn: "Посмотреть проекты",
+          heroContactBtn: "Связаться",
+          heroScrollDown: "Листайте вниз",
+          aboutHeading: "Обо мне",
+          aboutSub: "Качество. Производительность. Архитектура.",
+          aboutText1: "Я увлечённый Python-разработчик, специализирующийся на проектировании масштабируемых бэкенд-систем, оптимизации баз данных и автоматизации сложных процессов. Мой приоритет — высокая производительность и чистота архитектуры приложений.",
+          aboutText2: "Я верню, что хороший софт должен решать реальные задачи бизнеса, быть легко расширяемым и легко поддерживаемым. Постоянно совершенствую свои навыки, слежу за трендами и применяю современные паттерны проектирования на практике.",
+          aboutRoleTitle: "Специализация:",
+          aboutRoleVal: "Backend Developer (Python)",
+          aboutLocTitle: "Локация:",
+          aboutLocVal: "Ташкент, Узбекистан",
+          aboutExpYear: "3+",
+          aboutExpText: "года опыта",
+          aboutProjNum: "30+",
+          aboutProjText: "проектов сдано",
+          aboutClientNum: "100%",
+          aboutClientText: "довольных отзывов",
+          techHeading: "Мой стек",
+          techSub: "Инструменты и технологии, которые я использую для решения задач",
+          techLang: "Языки программирования",
+          techBackend: "Разработка бэкенда",
+          techDb: "Базы данных",
+          techTools: "Инфраструктура и инструменты",
+          projectsHeading: "Мои проекты",
+          projectsSub: "Последние реализованные приложения и веб-сервисы",
+          projectDetailBtn: "Подробнее",
+          projectLinkBtn: "Открыть репозиторий",
+          projectModalTech: "Технологический стек:",
+          projectModalRole: "Моя роль в проекте:",
+          projectModalFeatures: "Ключевые особенности и функции:",
+          projectModalClose: "Закрыть",
+          skillsHeading: "Опыт и Навыки",
+          skillsSub: "Глубокая экспертиза в технологиях и процессах",
+          skillsActiveExp: "Интерактивный радар компетенций",
+          skillsTimelineTitle: "Карьерный путь и обучение",
+          contactHeading: "Контакты",
+          contactSub: "Готовы обсудить интересный проект или задачу? Свяжитесь со мной!",
+          contactFormTitle: "Написать сообщение",
+          contactName: "Ваше имя",
+          contactEmail: "Ваш Email",
+          contactMsg: "Сообщение",
+          contactSendBtn: "Отправить сообщение",
+          contactSending: "Отправка...",
+          contactSuccess: "Сообщение успешно отправлено!",
+          contactError: "Ошибка при отправке. Пожалуйста, попробуйте еще раз.",
+          contactCardGithub: "Исходный код и примеры проектов",
+          contactCardEmail: "Прямая почтовая связь",
+          contactCardTelegram: "Быстрый ответ в мессенджере",
+          footerText: "Все права защищены."
+        },
+        en: {
+          navHome: "Home",
+          navAbout: "About",
+          navTech: "Tech Stack",
+          navSkills: "Skills",
+          navProjects: "Projects",
+          navContact: "Contact",
+          heroTitle: "Saidodilxon",
+          heroSubtitle: "Python Developer • Backend Developer • Software Engineer",
+          heroDesc: "I build robust applications, web services, automations, and engineering solutions on Python. Constantly mastering new technologies to create high-performing projects.",
+          heroProjectsBtn: "View Projects",
+          heroContactBtn: "Contact Me",
+          heroScrollDown: "Scroll Down",
+          aboutHeading: "About Me",
+          aboutSub: "Quality. Performance. Clean Architecture.",
+          aboutText1: "I am a dedicated Python Developer specializing in building scalable backend engines, database tuning, and high-degree automation. I emphasize ultimate performance, resilience, and maintainability in my designs.",
+          aboutText2: "I believe that outstanding software must address key business requirements directly, remain modular for future scale, and be straightforward to read. I regularly master trending methodologies and design patterns.",
+          aboutRoleTitle: "Specialty:",
+          aboutRoleVal: "Backend Developer (Python)",
+          aboutLocTitle: "Location:",
+          aboutLocVal: "Tashkent, Uzbekistan",
+          aboutExpYear: "3+",
+          aboutExpText: "years of experience",
+          aboutProjNum: "30+",
+          aboutProjText: "projects delivery",
+          aboutClientNum: "100%",
+          aboutClientText: "positive feedbacks",
+          techHeading: "Tech Stack",
+          techSub: "Professional toolbox and technologies utilized on daily programming",
+          techLang: "Programming Languages",
+          techBackend: "Backend Development",
+          techDb: "Databases & Engines",
+          techTools: "Infrastructure & Dev Tools",
+          projectsHeading: "Featured Projects",
+          projectsSub: "Showcase of recent custom applications and backend solutions",
+          projectDetailBtn: "Details",
+          projectLinkBtn: "Open Repository",
+          projectModalTech: "Technology Stack:",
+          projectModalRole: "My Role in Project:",
+          projectModalFeatures: "Core Architecture & Features:",
+          projectModalClose: "Close",
+          skillsHeading: "Experience & Skills",
+          skillsSub: "In-depth engineering expertise and focus areas",
+          skillsActiveExp: "Interactive Competence Radar",
+          skillsTimelineTitle: "Professional Path & Evolution",
+          contactHeading: "Get in Touch",
+          contactSub: "Have an enterprise challenge, startup concept, or project? Let's connect!",
+          contactFormTitle: "Send a message",
+          contactName: "Your Name",
+          contactEmail: "Your Email",
+          contactMsg: "How can I help you?",
+          contactSendBtn: "Send Message",
+          contactSending: "Sending...",
+          contactSuccess: "Your message has been sent successfully!",
+          contactError: "Failed to deliver. Please try again or reach directly.",
+          contactCardGithub: "Source codes and templates",
+          contactCardEmail: "Direct electronic mail",
+          contactCardTelegram: "Instant messaging & fast reply",
+          footerText: "All rights reserved."
+        },
+        uz: {
+          navHome: "Bosh sahifa",
+          navAbout: "Men haqimda",
+          navTech: "Texnologiyalar",
+          navSkills: "Ko'nikmalar",
+          navProjects: "Loyihalar",
+          navContact: "Aloqa",
+          heroTitle: "Saidodilxon",
+          heroSubtitle: "Python Developer • Backend Developer • Software Engineer",
+          heroDesc: "Python-da mustahkam dasturlar, veb-servislar va murakkab jarayonlarni avtomatlashtirish yechimlarini loyihalashtiraman. Har doim yangi texnologiyalarni o'rganib, foydali loyihalar yarataman.",
+          heroProjectsBtn: "Loyihalarni ko'rish",
+          heroContactBtn: "Bog'lanish",
+          heroScrollDown: "Pastga aylantiring",
+          aboutHeading: "Men haqimda",
+          aboutSub: "Sifat. Samaradorlik. Toza Arxitektura.",
+          aboutText1: "Men kengayuvchan backend tizimlarni loyihalash, ma'lumotlar omborini optimallashtirish va jarayonlarni modernizatsiya qilishga ixtisoslashgan Python mutaxassisiman. Kod tozaligi va arxitekturaga katta e'tibor qaratamin.",
+          aboutText2: "Ishonamanki, mukammal dasturiy ta'minot biznes muammolarini aniq hal qilishi, kelajakda oson kengayishi va qulay qo'llab-quvvatlanishi kerak. Yangi dizayn pattern'larini doimiy amaliyotga tatbiq etaman.",
+          aboutRoleTitle: "Yo'nalish:",
+          aboutRoleVal: "Backend Developer (Python)",
+          aboutLocTitle: "Manzil:",
+          aboutLocVal: "Toshkent, O'zbekiston",
+          aboutExpYear: "3+",
+          aboutExpText: "yillik tajriba",
+          aboutProjNum: "30+",
+          aboutProjText: "loyihalar yakunlangan",
+          aboutClientNum: "100%",
+          aboutClientText: "ijobiy fikrlar",
+          techHeading: "Texnologiyalar",
+          techSub: "Loyihalarda qo'llaniladigan asosiy vositalar va texnologiyalar ro'yxati",
+          techLang: "Dasturlash tillari",
+          techBackend: "Backend muhandisligi",
+          techDb: "Ma'lumotlar ombori",
+          techTools: "DevOps va boshqa uskunalar",
+          projectsHeading: "Mening loyihalarim",
+          projectsSub: "Ohirgi vaqtda amalga oshirilgan maxsus dasturiy loyihalar",
+          projectDetailBtn: "Batafsil",
+          projectLinkBtn: "Kodni ko'rish",
+          projectModalTech: "Texnologik stek:",
+          projectModalRole: "Loyihadagi rolim:",
+          projectModalFeatures: "Asosiy imkoniyatlar & arxitektura:",
+          projectModalClose: "Yopish",
+          skillsHeading: "Tajriba va Ko'nikmalar",
+          skillsSub: "Muhandislik malakasi va chuqurlashtirilgan yo'nalishlar",
+          skillsActiveExp: "Interaktiv kompetensiya radari",
+          skillsTimelineTitle: "Karyera va o'sish bosqichlari",
+          contactHeading: "Aloqa bog'lanish",
+          contactSub: "Qiziqarli loyihani muhokama qilishga tayyormisiz? Menga yozing!",
+          contactFormTitle: "Xabar yuborish",
+          contactName: "Ismingiz",
+          contactEmail: "Pochta manzilingiz",
+          contactMsg: "Sizga qanday yordam bera olaman?",
+          contactSendBtn: "Xabarni yuborish",
+          contactSending: "Yuborilmoqda...",
+          contactSuccess: "Xabaringiz muvaffaqiyatli yuborildi!",
+          contactError: "Xabar yuborishda xatolik yuz berdi. Iltimos, qayta urinib ko'ring.",
+          contactCardGithub: "Loyihalar kodlar ombori",
+          contactCardEmail: "To'g'ridan-to'g'ri elektron xat",
+          contactCardTelegram: "Tezkor aloqa va javob",
+          footerText: "Barcha huquqlar himoyalangan."
+        }
+      };
+
+      // DETAILED BULLETS MAPPED BY LANGUAGE
+      const bioBullets = [
+        {
+          ru: "Высококлассный Python-разработчик.",
+          en: "Highly focused Python developer.",
+          uz: "Yuqori malakali Python dasturchisi."
+        },
+        {
+          ru: "Полномочный специалист по Backend-разработке и СУБД.",
+          en: "Extensive expertise in Backend systems and database schemas.",
+          uz: "Backend tizimlar va mukammal ma'lumotlar bazasi mutaxassisi."
+        },
+        {
+          ru: "Создаю быстрые приложения и автоматизирую ручные процессы.",
+          en: "I build rapid apps and fully automate repetitive operations.",
+          uz: "Tezkor dasturlar yarataman va qayta ishlanuvchi mehnatni avtomatlashtiraman."
+        },
+        {
+          ru: "Адаптирую передовые платформы и современные сервисы разработки.",
+          en: "Adaptable with leading methodologies and cutting-edge software suites.",
+          uz: "Eng ilg'or metodologiyalar va hozirgi zamon dasturiy vositalari bilan ishlayman."
+        },
+        {
+          ru: "Придерживаюсь правил написания чистого и поддерживаемого кода.",
+          en: "Strict writer of exceptionally clean and maintainable codebase.",
+          uz: "Doimiy ravishda toza va oson qo'llab-quvvatlanuvchi kod yozish qoidalariga amal qilaman."
+        }
+      ];
+
+      // GLOBAL TECH CATEGORIES
+      const techCategories = [
+        {
+          title: { ru: "Языки программирования", en: "Programming Languages", uz: "Dasturlash tillari" },
+          icon: "terminal",
+          items: [
+            { name: "Python", level: "Senior / Core", border: "border-blue-500/20 shadow-blue-500/25", color: "text-blue-400" },
+            { name: "JavaScript", level: "ES6 / Async", border: "border-amber-500/10 shadow-amber-500/15", color: "text-amber-400" },
+            { name: "SQL", level: "DQL / Subqueries", border: "border-cyan-500/15 shadow-cyan-500/20", color: "text-cyan-400" },
+            { name: "HTML5", level: "Semantic Markup", border: "border-orange-500/10 shadow-orange-500/15", color: "text-orange-400" },
+            { name: "CSS3", level: "Flex / Grid", border: "border-indigo-500/10 shadow-indigo-500/15", color: "text-indigo-400" }
+          ]
+        },
+        {
+          title: { ru: "Разработка бэкенда", en: "Backend Development", uz: "Backend muhandisligi" },
+          icon: "server",
+          items: [
+            { name: "Django", level: "ORM / Middlewares", border: "border-emerald-600/20 shadow-emerald-600/25", color: "text-emerald-400" },
+            { name: "Django REST Framework", level: "Serializers", border: "border-rose-500/15 shadow-rose-500/20", color: "text-rose-400" },
+            { name: "REST API", level: "Stateful / Stateless", border: "border-violet-500/15 shadow-violet-500/20", color: "text-violet-400" }
+          ]
+        },
+        {
+          title: { ru: "Базы данных", en: "Databases & Engines", uz: "Ma'lumotlar ombori" },
+          icon: "database",
+          items: [
+            { name: "PostgreSQL", level: "Optimized Indexes", border: "border-blue-500/20 shadow-blue-500/20", color: "text-blue-350" },
+            { name: "SQLite", level: "Embedded Files", border: "border-sky-400/10 shadow-sky-400/15", color: "text-sky-300" },
+            { name: "MySQL", level: "Scalable Storage", border: "border-indigo-400/15 shadow-indigo-400/20", color: "text-indigo-300" }
+          ]
+        },
+        {
+          title: { ru: "Инфраструктура и инструменты", en: "Infrastructure & Dev Tools", uz: "DevOps va muhandislik" },
+          icon: "git-branch",
+          items: [
+            { name: "Git", level: "Branching Map", border: "border-red-500/15 shadow-red-500/20", color: "text-red-450" },
+            { name: "GitHub", level: "Actions / Releases", border: "border-purple-500/15 shadow-purple-500/20", color: "text-purple-400" },
+            { name: "Linux", level: "Bash / Admin", border: "border-yellow-500/10 shadow-yellow-500/15", color: "text-yellow-400" },
+            { name: "Docker", level: "Compose Containers", border: "border-sky-450/20 shadow-sky-400/25", color: "text-sky-400" },
+            { name: "VS Code", level: "Workspace", border: "border-blue-500/15 shadow-blue-500/20", color: "text-blue-400" }
+          ]
+        }
+      ];
+
+      // PROJECTS DATABASE RECORD MAPPING
+      const projectsData = [
+        {
+          id: "project-1",
+          image: "https://images.unsplash.com/photo-1618401471353-b98aedd07871?auto=format&fit=crop&w=800&q=80",
+          title: {
+            ru: "Python Настольное Приложение: PyProc CLI & GUI",
+            en: "Python Desktop Application: PyProc CLI & GUI",
+            uz: "Python Desktop Dasturi: PyProc CLI & GUI"
+          },
+          desc: {
+            ru: "Кроссплатформенная утилита на PySide6 с многопоточной обработкой больших массивов локальных файлов, парсингом логов и поддержкой регулярных выражений.",
+            en: "A cross-platform software written in PySide6 featuring multithreaded processing of local files, rapid log parsing, and advanced regex query engines.",
+            uz: "Katta hajmdagi mahalliy fayllarni ko'p oqimli qayta ishlash, loglarni parslash va mukammal regex ifodalarini qo'llab-quvvatlovchi PySide6 dasturi."
+          },
+          techs: ["Python", "PySide6", "Threaded Worker", "RegEx", "JSON/CSV Engines"],
+          role: {
+            ru: "Единоличный разработчик архитектуры, графического интерфейса и многопоточного движка синхронизации файлового ввода-вывода.",
+            en: "Lead designer and author of the thread manager, file input/output engine, and beautiful visual interface layouts.",
+            uz: "Arxitektura, grafik interfeys hamda ko'p oqimli kirish-chiqish sinxronizatsiya algoritmlarining to'liq yaratuvchisi."
+          },
+          details: {
+            ru: [
+              "Разработан отзывчивый асинхронный интерфейс на QThread, предотвращающий зависание главного окна во время сканирования терабайтов данных.",
+              "Гибкий настраиваемый парсер, способный читать и фильтровать сотни логов в секунду.",
+              "Полное сохранение конфигураций и профилей экспорта в зашифрованных файлах.",
+              "Экспорт результатов в PDF, CSV и Excel для удобного последующего анализа в корпоративной среде."
+            ],
+            en: [
+              "Created an asynchronous worker engine on top of QThread, protecting UI smoothness during heavy data analysis operations.",
+              "Built custom configurable streams capable of parsing and extracting 10,000 lines of system events per second.",
+              "Secure profile preservation storing parameters in encrypted local database configs.",
+              "Comprehensive report exports supporting Excel, CSV, and formatted PDF structures."
+            ],
+            uz: [
+              "QThread vositasida asinxron ishchi mexanizm ishlab chiqildi, bu katta hajmdagi skanerlashda interfeys qotib qolishini oldini oladi.",
+              "Sekundiga 10,000 qatorgacha tizim hodisalarini o'qiy oladigan moslashuvchan parse oqimlari.",
+              "Parametrlarni shifrlangan mahalliy ma'lumotlar bazasida xavfsiz saqlash tizimi.",
+              "Hisobotlarni Excel, CSV va tozada chop etiladigan PDF formatlariga eksport qilish."
+            ]
+          },
+          github: "https://github.com/Said0dilkhon"
+        },
+        {
+          id: "project-2",
+          image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+          title: {
+            ru: "Django Web Portal: Education LMS & API",
+            en: "Django Web Portal: Education LMS & API",
+            uz: "Django Veb Portal: Onlayn Ta'lim LMS & API"
+          },
+          desc: {
+            ru: "Высоконагруженная образовательная платформа с курсами, автоматической проверкой тестов программного кода, ролевой моделью пользователей и полным REST API документом.",
+            en: "An advanced Educational Learning Management System including automated student code verification, hierarchical granular roles, and clean Swagger/ReDoc REST coverage.",
+            uz: "Talabalarning dasturlash kodlarini avtomatlashtirilgan tekshirish, rollar iyerarxiyasi, va to'liq hujjatlashtirilgan Swagger REST API ga ega LMS platformasi."
+          },
+          techs: ["Django", "Django REST Framework", "PostgreSQL", "JWT Auth", "Swagger"],
+          role: {
+            ru: "Главный backend-разработчик. Спроектировал базу данных, разработал систему контроля доступов на основе ролей и интегрировал JWT.",
+            en: "Principal backend software engineer. Designed database structures, normalized models, integrated caching, and secure tokenization.",
+            uz: "Bosh backend dasturchisi. Ma'lumotlar ombori arxitekturasini loyihalashtirdi, rollar tizimini yaratdi va xavfsiz JWT tokenlarini joriy etdi."
+          },
+          details: {
+            ru: [
+              "Оптимально спроектированные Django ORM связи One-To-Many / Many-To-Many с минимизацией N+1 запросов за счет select_related и prefetch_related.",
+              "Надежная авторизация по токенам JWT (SimpleJWT) с разделением прав доступа для студентов, преподавателей и модераторов.",
+              "Интерактивная автопроверка качества сданных задач на синтаксис Python и вывод результатов в реальном времени.",
+              "Автогенерация документации Swagger/OpenAPI с помощью drf-yasg."
+            ],
+            en: [
+              "Engineered highly optimized Django ORM relationships with full prefetching strategies to entirely address N+1 performance issues.",
+              "Secure JSON Web Token integration (via SimpleJWT) supporting granular system actions and admin level gates.",
+              "Intelligent task sandboxing checking uploaded Python files against target test cases.",
+              "Fully automated OpenAPI interactive API docs via drf-yasg, facilitating client-side integration modules."
+            ],
+            uz: [
+              "N+1 so'rovlar muammosini hal qilish uchun select_related va prefetch_related orqali optimallashtirilgan Django ORM munosabatlari.",
+              "SimpleJWT orqali xavfsiz JSON Web Token tizimi va foydalanuvchi rollarining tizimli chegaralanishi.",
+              "Yuklangan Python topshiriqlarini avtomatlashtirilgan test holatlari bilan xavfsiz tekshiruvchi qumloq (sandbox) tizimi.",
+              "Veb va boshqa mijozlar qulay ulanishi uchun drf-yasg yordamida Swagger/OpenAPI hujjatlari."
+            ]
+          },
+          github: "https://github.com/Said0dilkhon"
+        },
+        {
+          id: "project-3",
+          image: "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?auto=format&fit=crop&w=800&q=80",
+          title: {
+            ru: "Многофункциональный Telegram-Бот (Aiogram 3)",
+            en: "Multi-Functional Telegram Bot (Aiogram 3)",
+            uz: "Ko'p tarmoqli Telegram Bot (Aiogram 3)"
+          },
+          desc: {
+            ru: "Автоматизированный бот для бизнеса с приемом платежей, управлением рассылками, интеграцией AmoCRM и FSM-меню заказов.",
+            en: "A commercial Telegram bot built with Aiogram v3, containing online payments, user state tracking (FSM), broadcast systems, and external CRM synch.",
+            uz: "AmoCRM ulanishi, FSM xolatlarini boshqarish tizimi, reklama xabarlari, va Click/Payme to'lovlariga ega tijoriy Telegram chatbot."
+          },
+          techs: ["Aiogram 3", "PostgreSQL", "Redis FSM", "Click/Payme", "AmoCRM API"],
+          role: {
+            ru: "Разработчик полного цикла. Интегрировал внешние API CRM-систем и настроил Redis для кэширования состояний диалогов пользователей.",
+            en: "Fullstack Bot Engineer. Designed Finite State Machine sequences, integrated Click/Payme secure APIs, and deployed Redis workflows.",
+            uz: "To'liq sikldan o'tgan chatbot muhandisi. Dialoq holatlarini Redis-da saqlash, to'lov tizimlari va CRM integratsiyasini qildi."
+          },
+          details: {
+            ru: [
+              "Реализовано гибкое меню на основе Finite State Machine (Redis FSM), поддерживающее одновременное прохождение сценариев тысячами пользователей.",
+              "Встроенный модуль регулярных рассылок с контролем лимитов Telegram API и защитой от блокировок.",
+              "Успешная интеграция платежных шлюзов Click и Payme для мгновенной оплаты цифровых товаров внутри мессенджера.",
+              "Логирование всех действий пользователей и автоматическая передача лидов в AmoCRM для отдела продаж."
+            ],
+            en: [
+              "Implemented high-performance stateful control loops via Redis FSM, handling high simultaneous request volumes.",
+              "Bulk notification scheduler abiding strictly to official Telegram API limits to prevent endpoint throttling.",
+              "Integrated popular local payment gateways for native checkouts immediately inside user chat sessions.",
+              "Rich telemetry logging with instant lead dispatching parameters directly into enterprise AmoCRM services."
+            ],
+            uz: [
+              "Redis FSM yordamida juda moslashuvchan cheklangan holatlar mashinasi yaratildi, minglab foydalanuvchilar oqimiga bardoshli.",
+              "Telegram API cheklovlariga amal qilgan va bloklanishlardan himoyalangan ommaviy xabarlar yuborish scheduleri.",
+              "Mahsulotlar sotuvi uchun mahalliy Click va Payme to'lov tizimlarining xavfsiz va tez integratsiyasi.",
+              "Barcha xarakatlarni yozib borish hamda yangi mijozlarni avtomatik AmoCRM tizimiga uzatish moduli."
+            ]
+          },
+          github: "https://github.com/Said0dilkhon"
+        },
+        {
+          id: "project-4",
+          image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80",
+          title: {
+            ru: "ПарсерДанных & Парсинг-Скрипт Агрегатора новостей",
+            en: "Intelligent Data Scraper & Aggregator Tool",
+            uz: "Aqlli Ma'lumotlar Parsiri va Agregatori"
+          },
+          desc: {
+            ru: "Интеллектуальный асинхронный парсер новостей и товаров с защитой от Cloudflare, обработкой прокси, параллельной загрузкой и базой PostgreSQL.",
+            en: "An SQL-integrated asynchronous scraper system bypassing basic Cloudflare protections, managing dynamic proxy pools, and storing entries to PostgreSQL.",
+            uz: "Cloudflare ximoyasini chetlab o'tuvchi, proksi ro'yxatlarini boshqaruvchi va millionlab ma'lumotlarni asinxron yuklab PostgreSQL-ga saqlovchi parser."
+          },
+          techs: ["Playwright", "HTTPX", "BeautifulSoup4", "Celery", "PostgreSQL"],
+          role: {
+            ru: "Разработчик парсинг-модулей, алгоритмов ротации User-Agent/прокси и интеграции очереди задач Celery для автоматического запуска на сервере.",
+            en: "Creator of the scraper engine, User-Agent anti-detection sequences, and Celery task loops for automatic container schedules.",
+            uz: "Aylantiriladigan proksilar va User-Agent generatori yaratuvchisi, serverda reja bo'yicha ishlash uchun Celery integratsiyasini qildi."
+          },
+          details: {
+            ru: [
+              "Асинхронное исполнение на HTTPX и Playwright позволило сократить время сбора данных в 7 раз по сравнению с линейным парсингом.",
+              "Умный обход систем защиты CAPTCHA и Cloudflare с помощью автоматической ротации качественных прокси-серверов.",
+              "Регулярная агрегации цен, новостей и характеристик товаров со структурированным распределением в таблицы SQL.",
+              "Дедупликация собираемых записей на уровне запросов базы данных с использованием индексов UNIQUE."
+            ],
+            en: [
+              "Ultra fast asynchronous crawling powered by HTTPX/Playwright, delivering a 7x speed advantage over legacy parsing cycles.",
+              "Intelligent firewall evasion featuring multi-regional proxy switching pools and randomized browser blueprints.",
+              "Automated scheduler aggregation system formatting raw HTML layouts into clean database columns.",
+              "On-the-fly deduplication mechanisms applying relational index constraints dynamically."
+            ],
+            uz: [
+              "HTTPX va Playwright asinxron oqimlari evaziga standart sinxron parserlarga qaraganda ma'lumot yig'ish tezligi 7 marta oshirildi.",
+              "Sifatli proksi manzillar aylanmasi yordamida Cloudflare ximoyasi va CAPTCHA tizimlarini oson chetlab o'tish mexanizmi.",
+              "Har xil internet manbalardan xabarlar va narxlarni bir tekis strukturali jadvallarga jamlash moduli.",
+              "PostgreSQL bazasida tezkor UNIQUE indekslar bilan bir xil yuklangan ma'lumotlar takrorlanishining oldini olish."
+            ]
+          },
+          github: "https://github.com/Said0dilkhon"
+        },
+        {
+          id: "project-5",
+          image: "https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&w=800&q=80",
+          title: {
+            ru: "Персональный Сайт-Портфолио Разработчика",
+            en: "Developer Personal Portfolio Website",
+            uz: "Dasturchi Shaxsiy Portfel Sayti"
+          },
+          desc: {
+            ru: "Премиальный реактивный сайт портфолио в стиле Glassmorphism с поддержкой мультиязычности, плавной прокрутки, интерактивных графиков компетенций и анимаций.",
+            en: "A premium reactive portfolio website built in professional Glassmorphic dark style, supporting multilingual toggle, interactive radars, and high-degree transitions.",
+            uz: "Glassmorphism uslubidagi yuqori darajada moslashuvchan, uch tilda ishlovchi, animatsiyalar va interaktiv texnik kartalarga ega portfel-veb sayti."
+          },
+          techs: ["React 19", "Vite", "Tailwind CSS", "Motion", "Typescript"],
+          role: {
+            ru: "Единоличный дизайнер и разработчик интерфейса, анимационных скриптов и контента для мультиязычной локализации сообщений.",
+            en: "Solo designer and developer of visual layouts, responsive canvas, interactive radar, and custom loading components.",
+            uz: "Yagona dizayner va dasturchi. Moslashuvchan fon animatsiyalari, interaktiv radar hamda vizual o'tishlar arxitekturasini loyihalashtirdi."
+          },
+          details: {
+            ru: [
+              "100% плавность переходов благодаря библиотеке Motion (motion/react).",
+              "Адаптивность под экраны смартфонов, планшетов, ноутбуков и Ultra-Wide UHD дисплеев.",
+              "Изящная локализация на 3 языка (RU/EN/UZ) с мгновенным переключением без перезагрузки.",
+              "Полное соответствие стандартам SEO: структурированные теги, идеальная читаемость контрастов темной темы."
+            ],
+            en: [
+              "Impeccable responsiveness and 60fps transitions provided through custom framer Motion curves.",
+              "Universal scaling optimizing visual layouts for smart devices, tablets, and UHD monitors.",
+              "Clean instant localization mapping in three global languages with dynamic React context tracking.",
+              "Optimal web metrics complying to core accessible design structures, contrasting and text alignments."
+            ],
+            uz: [
+              "Motion kutubxonasi yordamida 60fps tezligida ajoyib silliq o'tishlar va animatsiyalar.",
+              "Mobil telefonlar, planshetlar va eni katta ekranlar uchun to'liq moslashuvchanlik.",
+              "Hech qanday sahifani qayta yuklamasdan 3 ta tilda (RU/EN/UZ) matnlarni bir vaqtning o'zida almashtirish imkoniyati.",
+              "Qorong'u mavzu fonlari bilan matnlar o'rtasida mukammal kontrast va qat'iy SEO optimallashtirish qoidalari."
+            ]
+          },
+          github: "https://github.com/Said0dilkhon"
+        }
+      ];
+
+      // CORE COMPETENCY SKILLS
+      const coreSkills = [
+        { name: "Python", perm: 90, desc: "Multithreading, OOP, Fast & Clean scripting, Generators, Decorators" },
+        { name: "Django & DRF", perm: 80, desc: "ORM optimization, Middleware engines, Views/Serializers tuning" },
+        { name: "SQL (PostgreSQL / MySQL)", perm: 75, desc: "Subqueries, Indexing, Normalization, Query plans analysis" },
+        { name: "Git / GitHub Versioning", perm: 85, desc: "Git Flow, Repository configuration, Release tracking" },
+        { name: "JavaScript", perm: 65, desc: "Asynchronous callbacks, DOM modification, Event routing models" }
+      ];
+
+      // CAREER LANDMARKS TIMELINE
+      const timelines = [
+        {
+          type: "work",
+          date: "2024 - 2026",
+          title: {
+            ru: "Backend Developer (Freelance & Outsource)",
+            en: "Backend Developer (Freelance & Outsource)",
+            uz: "Backend Dasturchi (Frilans va Autsors)"
+          },
+          place: {
+            ru: "Удаленно / Ташкент",
+            en: "Remote / Tashkent",
+            uz: "Masofaviy / Toshkent"
+          },
+          desc: {
+            ru: "Проектирование баз данных, сборка REST API, создание сложных Telegram-ботов для автоматизации малого и среднего коммерческого сектора.",
+            en: "Database design patterns, REST API construction, complex interactive Telegram bots, CRM integration systems.",
+            uz: "Ma'lumotlar bazasini loyihalash, REST API yaratish, tijorat va avtomatlashtirish yo'nalishlarida mukammal Telegram botlar yig'ish."
+          }
+        },
+        {
+          type: "study",
+          date: "2022 - 2024",
+          title: {
+            ru: "Python Software Engineering",
+            en: "Python Software Engineering studies",
+            uz: "Python Dasturiy Muhandislik kurslari"
+          },
+          place: {
+            ru: "Практическая академия IT",
+            en: "Practical IT Academy",
+            uz: "Amaliy IT Akademiyalari"
+          },
+          desc: {
+            ru: "Профильное обучение разработке бэкенда на Python, алгоритмам и структурам данных, проектированию реляционных баз данных и CI/CD автоматизации.",
+            en: "Structured courses focusing strictly on backend engineering on Python, system algorithms, normalized schemas, and CI/CD operations.",
+            uz: "Python-da backend dasturlash, tizim algoritmlari, relyatsion ma'lumotlar bazasini loyihalash va CI/CD tizimlari bo'yicha ta'lim."
+          }
+        }
+      ];
+
+      // LOCAL STATE STORAGE
+      let currentLanguage = "ru";
+      let langDropdownOpen = false;
+      let mobileMenuOpen = false;
+
+      // PRELOADER BOOT SEQUENCE LOGIC
+      function startPreloader() {
+        const logsContainer = document.getElementById("preloader-logs");
+        const bar = document.getElementById("preloader-bar");
+        const label = document.getElementById("preloader-pct");
+        const steps = [
+          "Initializing Python runtimes...",
+          "Importing asyncio, aiogram, django, fastapi...",
+          "Establishing PostgreSQL connections...",
+          "Mounting Glassmorphic UI modules...",
+          "Compiling Tailwind styling grids...",
+          "Welcome to Saidodilxon's system."
+        ];
+        
+        let elapsed = 0;
+        let logIndex = 0;
+        
+        const preloaderInterval = setInterval(() => {
+          if (logIndex < steps.length) {
+            const nextLog = document.createElement("div");
+            nextLog.className = `flex items-start gap-1 ${logIndex === steps.length - 1 ? "text-green-400 font-semibold" : "text-slate-350"}`;
+            nextLog.innerHTML = `<span class="text-blue-500 select-none">&gt;</span> <span>${steps[logIndex]}</span>`;
+            logsContainer.appendChild(nextLog);
+            logsContainer.scrollTop = logsContainer.scrollHeight;
+            
+            logIndex++;
+            elapsed = Math.min(elapsed + 18, 100);
+            bar.style.width = elapsed + "%";
+            label.textContent = Math.round(elapsed) + "%";
+          } else if (elapsed < 100) {
+            elapsed = 100;
+            bar.style.width = "100%";
+            label.textContent = "100%";
+          } else {
+            clearInterval(preloaderInterval);
+            setTimeout(() => {
+              const preloader = document.getElementById("preloader-overlay");
+              const shell = document.getElementById("app-shell");
+              preloader.style.opacity = "0";
+              shell.classList.remove("hidden");
+              setTimeout(() => {
+                preloader.style.display = "none";
+                lucide.createIcons();
+                initMatrixRain();
+              }, 700);
+            }, 500);
+          }
+        }, 350);
+      }
+
+      // SCROLL TO ELEMENT HELPER WITH COMPENSATED POSITION
+      function scrollToSection(id) {
+        toggleMobileMenu(true); // Close if opened
+        const el = document.getElementById(id);
+        if (el) {
+          const headerOffset = 80;
+          const rect = el.getBoundingClientRect().top;
+          const offsetPos = rect + window.scrollY - headerOffset;
+          window.scrollTo({
+            top: offsetPos,
+            behavior: "smooth"
+          });
+        }
+      }
+
+      // NAV BAR SCROLL TRANSFORMER
+      window.addEventListener("scroll", () => {
+        const header = document.getElementById("navbar-header");
+        const topBtn = document.getElementById("floating-scroll-top");
+        if (window.scrollY > 30) {
+          header.className = "fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-[#030712]/80 backdrop-blur-md border-b border-white/5 py-4";
+        } else {
+          header.className = "fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-transparent py-5";
+        }
+
+        if (window.scrollY > 400) {
+          topBtn.classList.remove("hidden");
+        } else {
+          topBtn.classList.add("hidden");
+        }
+
+        // Active tracking item
+        const secs = ["home", "about", "technologies", "projects", "skills", "contact"];
+        let currentActive = "home";
+        for (const s of secs) {
+          const el = document.getElementById(s);
+          if (el) {
+            const top = el.offsetTop - 120;
+            if (window.scrollY >= top) {
+              currentActive = s;
+            }
+          }
+        }
+        document.querySelectorAll(".nav-btn").forEach(btn => {
+          if (btn.getAttribute("data-sec") === currentActive) {
+            btn.className = "nav-btn font-sans text-sm font-medium tracking-wide transition-all duration-300 relative py-1.5 cursor-pointer text-blue-400";
+          } else {
+            btn.className = "nav-btn font-sans text-sm font-medium tracking-wide transition-all duration-300 relative py-1.5 cursor-pointer text-slate-400 hover:text-white";
+          }
+        });
+      });
+
+      // LANGUAGE SWITCHING LOGIC WITH SELECTIVE BINDINGS
+      function toggleLangDropdown() {
+        const picker = document.getElementById("lang-dropdown");
+        langDropdownOpen = !langDropdownOpen;
+        if (langDropdownOpen) {
+          picker.className = "absolute right-0 mt-2 w-48 rounded-xl bg-slate-900 border border-white/10 p-1 shadow-2xl transition-all duration-200 transform scale-100 opacity-100 pointer-events-auto";
+        } else {
+          picker.className = "absolute right-0 mt-2 w-48 rounded-xl bg-slate-900 border border-white/10 p-1 shadow-2xl transition-all duration-200 transform scale-95 opacity-0 pointer-events-none";
+        }
+      }
+
+      function changeLanguage(lang) {
+        currentLanguage = lang;
+        document.getElementById("current-lang-label").textContent = lang;
+        document.getElementById("mobile-lang-label").textContent = lang;
+        
+        // Toggle indicator check circles
+        ["ru", "en", "uz"].forEach(l => {
+          document.getElementById("indicator-" + l).className = (l === lang) ? "w-1.5 h-1.5 rounded-full bg-blue-500" : "w-1.5 h-1.5 rounded-full bg-blue-500 hidden";
+        });
+
+        // Translate nodes mapping
+        const t = translations[lang];
+        document.querySelectorAll("[data-t]").forEach(el => {
+          const key = el.getAttribute("data-t");
+          if (t[key]) el.innerHTML = t[key];
+        });
+
+        // Render responsive submodules listing
+        renderAboutBullets();
+        renderTechCategories();
+        renderProjectsShowcase();
+        renderCompetencyBars();
+        renderTimelines();
+
+        // Close picker dropdown
+        langDropdownOpen = true;
+        toggleLangDropdown();
+      }
+
+      function rotateMobileLang() {
+        const sequence = ["ru", "en", "uz"];
+        const nextIdx = (sequence.indexOf(currentLanguage) + 1) % sequence.length;
+        changeLanguage(sequence[nextIdx]);
+      }
+
+      // MOBILE DRAWER MENUS TOGGLE
+      function toggleMobileMenu(forceClose = false) {
+        const drawer = document.getElementById("mobile-menu-panel");
+        const icon = document.getElementById("mobile-menu-icon");
+        mobileMenuOpen = forceClose ? false : !mobileMenuOpen;
+        
+        if (mobileMenuOpen) {
+          drawer.classList.remove("hidden");
+          setTimeout(() => {
+            drawer.className = "fixed inset-x-0 top-[64px] bg-[#030712]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl z-40 transition-all duration-300 origin-top transform scale-y-100 opacity-100";
+          }, 10);
+          icon.setAttribute("data-lucide", "x");
+        } else {
+          drawer.className = "fixed inset-x-0 top-[64px] bg-[#030712]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl z-40 transition-all duration-300 origin-top transform scale-y-0 opacity-0";
+          setTimeout(() => drawer.classList.add("hidden"), 300);
+          icon.setAttribute("data-lucide", "menu");
+        }
+        lucide.createIcons();
+      }
+
+      function mobileNavRedirect(sec) {
+        toggleMobileMenu(true);
+        scrollToSection(sec);
+      }
+
+      // RENDER BULLETS SECTIONS ON PORTFOLIOS
+      function renderAboutBullets() {
+        const holder = document.getElementById("about-bullets-holder");
+        holder.innerHTML = "";
+        bioBullets.forEach(item => {
+          const li = document.createElement("li");
+          li.className = "flex items-start gap-3 group/item";
+          li.innerHTML = `
+            <span class="mt-1 w-4 h-4 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 group-hover/item:border-blue-500/60 group-hover/item:bg-blue-500/20 transition-all flex-shrink-0">
+              <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
+            </span>
+            <span class="group-hover/item:text-white transition-colors">
+              ${item[currentLanguage]}
+            </span>
+          `;
+          holder.appendChild(li);
+        });
+        lucide.createIcons();
+      }
+
+      // RENDER DETAILED TECH BENTO GRID CELLS
+      function renderTechCategories() {
+        const grid = document.getElementById("bento-tech-grid");
+        grid.innerHTML = "";
+        techCategories.forEach((cat, index) => {
+          const colSpan = (index === 0 || index === 3) ? "md:col-span-7" : "md:col-span-5";
+          const card = document.createElement("div");
+          card.className = `glass-panel p-6 sm:p-8 border border-white/5 bg-slate-900/15 hover:border-blue-500/25 hover:shadow-[0_20px_50px_-15px_rgba(59,130,246,0.2)] hover:bg-slate-900/40 hover:scale-[1.01] transition-all duration-500 flex flex-col justify-between ${colSpan}`;
+          
+          let flexItemsHTML = "";
+          cat.items.forEach(tech => {
+            flexItemsHTML += `
+              <div class="px-3.5 py-2 rounded-2xl bg-[#080d19]/80 border ${tech.border} flex flex-col cursor-default select-none transition-transform hover:scale-105 duration-200">
+                <span class="text-xs sm:text-sm font-semibold tracking-wide ${tech.color}">${tech.name}</span>
+                <span class="text-[9px] font-mono text-slate-400 mt-0.5 uppercase tracking-wider">${tech.level}</span>
+              </div>
+            `;
+          });
+
+          card.innerHTML = `
+            <div>
+              <div class="flex items-center gap-3 mb-6 border-b border-white/5 pb-4">
+                <div class="p-2.5 rounded-2xl bg-white/5 border border-white/5 text-blue-400">
+                  <i data-lucide="${cat.icon}" class="w-5 h-5"></i>
+                </div>
+                <h3 class="font-display text-lg sm:text-xl font-bold tracking-tight text-white uppercase">${cat.title[currentLanguage]}</h3>
+              </div>
+              <div class="flex flex-wrap gap-2.5">${flexItemsHTML}</div>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+        lucide.createIcons();
+      }
+
+      // RENDER DETAILED PORTFOLIO PROJECTS ITEMS
+      function renderProjectsShowcase() {
+        const container = document.getElementById("bento-projects-container");
+        container.innerHTML = "";
+        projectsData.forEach((project, index) => {
+          const colSpan = index === 0 ? "lg:col-span-7 md:col-span-12" :
+                          index === 1 ? "lg:col-span-5 md:col-span-12" :
+                          index < 4 ? "lg:col-span-4 md:col-span-6" :
+                          "lg:col-span-4 md:col-span-12";
+
+          const pCard = document.createElement("div");
+          pCard.className = `glass-panel-interactive overflow-hidden border border-white/10 bg-slate-900/15 hover:border-blue-500/30 shadow-xl relative flex flex-col h-full group ${colSpan}`;
+          
+          let techsHTML = "";
+          project.techs.slice(0, 3).forEach(tech => {
+            techsHTML += `<span class="px-2.5 py-1 rounded-lg text-[10px] font-mono bg-white/5 border border-white/5 text-slate-400 uppercase tracking-wide">${tech}</span>`;
+          });
+          if (project.techs.length > 3) {
+            techsHTML += `<span class="px-2.5 py-1 rounded-lg text-[10px] font-mono bg-blue-500/10 border border-blue-500/10 text-blue-400 font-semibold">+${project.techs.length - 3}</span>`;
+          }
+
+          pCard.innerHTML = `
+            <div class="relative aspect-video w-full overflow-hidden bg-slate-950/80">
+              <img src="${project.image}" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
+              <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#030712]/75 border border-white/10 font-mono text-[9px] uppercase tracking-wider text-blue-400 backdrop-blur-sm font-semibold select-none">Index: 0${index + 1}</div>
+            </div>
+            <div class="p-6 flex flex-col flex-grow justify-between space-y-5">
+              <div class="space-y-3">
+                <h3 class="font-display text-base sm:text-lg font-bold tracking-tight text-white uppercase group-hover:text-blue-400 transition-colors">${project.title[currentLanguage]}</h3>
+                <p class="font-sans text-xs sm:text-sm text-slate-400 leading-relaxed font-light line-clamp-3">${project.desc[currentLanguage]}</p>
+              </div>
+              <div class="space-y-4">
+                <div class="flex flex-wrap gap-1.5 pt-1">${techsHTML}</div>
+                <div class="flex items-center gap-3 pt-2">
+                  <button onclick="openProjectModal('${project.id}')" class="flex-1 py-2.5 px-3 rounded-full bg-blue-600/10 hover:bg-blue-600 border border-blue-500/20 hover:border-blue-500 hover:text-white font-sans text-xs font-semibold text-blue-400 text-center tracking-wide hover:scale-[1.01] active:scale-95 transition-all duration-300 cursor-pointer">${translations[currentLanguage].projectDetailBtn}</button>
+                  <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/15 text-slate-450 hover:text-white active:scale-95 transition-all text-center flex items-center justify-center">
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          `;
+          container.appendChild(pCard);
+        });
+        lucide.createIcons();
+      }
+
+      // RENDER PROGRESS/METRIC BARS BLOCK
+      function renderCompetencyBars() {
+        const holder = document.getElementById("competency-bars-container");
+        holder.innerHTML = "";
+        coreSkills.forEach(skill => {
+          const div = document.createElement("div");
+          div.className = "space-y-1.5";
+          div.innerHTML = `
+            <div class="flex justify-between items-end text-sm">
+              <span class="font-sans font-semibold text-slate-200">${skill.name}</span>
+              <span class="font-mono text-xs font-bold text-blue-400">${skill.perm}%</span>
+            </div>
+            <div class="w-full h-2 bg-slate-900/60 rounded-full overflow-hidden border border-white/5 relative">
+              <div class="h-full bg-gradient-to-r from-blue-600 via-blue-400 to-indigo-500 rounded-full" style="width: ${skill.perm}%"></div>
+            </div>
+            <p class="text-[10px] font-mono text-slate-500 uppercase tracking-wide">${skill.desc}</p>
+          `;
+          holder.appendChild(div);
+        });
+      }
+
+      // RENDER TIMELINES EXPERIENCE ITEMS
+      function renderTimelines() {
+        const holder = document.getElementById("timelines-container");
+        holder.innerHTML = "";
+        timelines.forEach(item => {
+          const div = document.createElement("div");
+          div.className = "relative";
+          const icon = item.type === "work" ? "briefcase" : "graduation-cap";
+          
+          div.innerHTML = `
+            <div class="absolute -left-[35px] top-1.5 w-6 h-6 rounded-full bg-slate-950 border-2 border-blue-500 flex items-center justify-center text-blue-400 shadow-md">
+              <i data-lucide="${icon}" class="w-3.5 h-3.5 text-blue-400"></i>
+            </div>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[10px] font-mono text-blue-400 uppercase tracking-widest font-semibold mb-3">
+              <i data-lucide="calendar" class="w-3 h-3"></i>
+              ${item.date}
+            </span>
+            <div class="space-y-1.5">
+              <h4 class="font-display text-base font-bold tracking-tight text-white uppercase">${item.title[currentLanguage]}</h4>
+              <span class="text-xs font-mono text-slate-400 uppercase tracking-widest block">${item.place[currentLanguage]}</span>
+              <p class="font-sans text-xs sm:text-sm text-slate-400 leading-relaxed font-light">${item.desc[currentLanguage]}</p>
+            </div>
+          `;
+          holder.appendChild(div);
+        });
+        lucide.createIcons();
+      }
+
+      // DETAILED MODAL VIEWER CLOSURES & OPENINGS
+      function openProjectModal(id) {
+        const project = projectsData.find(p => p.id === id);
+        if (!project) return;
+        
+        document.getElementById("modal-project-img").src = project.image;
+        document.getElementById("modal-project-title").textContent = project.title[currentLanguage];
+        document.getElementById("modal-project-desc").textContent = project.desc[currentLanguage];
+        document.getElementById("modal-project-role").textContent = project.role[currentLanguage];
+        document.getElementById("modal-project-github").href = project.github;
+
+        // Features map listing
+        const fHolder = document.getElementById("modal-features-list");
+        fHolder.innerHTML = "";
+        project.details[currentLanguage].forEach(feat => {
+          const div = document.createElement("div");
+          div.className = "p-3.5 rounded-xl bg-white/5 border border-white/5 hover:border-white/10 text-xs font-sans text-slate-300 flex items-start gap-2.5 leading-relaxed";
+          div.innerHTML = `<i data-lucide="check-square" class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5"></i> <span>${feat}</span>`;
+          fHolder.appendChild(div);
+        });
+
+        // Stacks list
+        const tHolder = document.getElementById("modal-tech-list");
+        tHolder.innerHTML = "";
+        project.techs.forEach(tech => {
+          tHolder.innerHTML += `<span class="px-2.5 py-1 rounded-lg text-xs font-mono bg-white/5 border border-white/5 text-slate-300 uppercase tracking-wide">${tech}</span>`;
+        });
+
+        // Toggle modal visibility with classes
+        const overlay = document.getElementById("project-detail-overlay");
+        overlay.classList.remove("hidden");
+        lucide.createIcons();
+      }
+
+      function closeProjectModal() {
+        document.getElementById("project-detail-overlay").classList.add("hidden");
+      }
+
+      // COPY CLIPBOARD SECURE HOOK
+      function copyToClipboard(text, elementId) {
+        navigator.clipboard.writeText(text).then(() => {
+          const icon = document.getElementById("copy-icon-" + elementId);
+          icon.setAttribute("data-lucide", "check");
+          icon.classList.add("text-emerald-400");
+          lucide.createIcons();
+          
+          setTimeout(() => {
+            icon.setAttribute("data-lucide", "copy");
+            icon.classList.remove("text-emerald-400");
+            lucide.createIcons();
+          }, 2000);
+        });
+      }
+
+      // FORM SUBMISSIONS SIMULATED Latency
+      function handleFormSubmission(event) {
+        event.preventDefault();
+        const submitBtn = document.getElementById("form-submit-btn");
+        const btnText = document.getElementById("submit-btn-text");
+        const btnIcon = document.getElementById("submit-btn-icon");
+        const successAlert = document.getElementById("form-alert-success");
+
+        submitBtn.disabled = true;
+        btnText.textContent = translations[currentLanguage].contactSending;
+        btnIcon.setAttribute("data-lucide", "loader");
+        btnIcon.classList.add("animate-spin");
+        lucide.createIcons();
+
+        setTimeout(() => {
+          successAlert.classList.remove("hidden");
+          submitBtn.disabled = false;
+          btnText.textContent = translations[currentLanguage].contactSendBtn;
+          btnIcon.setAttribute("data-lucide", "send");
+          btnIcon.classList.remove("animate-spin");
+          lucide.createIcons();
+
+          // Reset fields
+          document.getElementById("form-input-name").value = "";
+          document.getElementById("form-input-email").value = "";
+          document.getElementById("form-input-message").value = "";
+
+          setTimeout(() => successAlert.classList.add("hidden"), 5000);
+        }, 1500);
+      }
+
+      // HIGH PERFORMANCE THEME GLOW MATRIX DIGITAL RAIN COMPILER
+      function initMatrixRain() {
+        const canvas = document.getElementById("matrix-canvas");
+        const ctx = canvas.getContext("2d");
+        
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+        
+        const fontSize = 14;
+        let columns = Math.ceil(width / fontSize);
+        let drops = [];
+        let speeds = [];
+        let opacityList = [];
+        
+        const rawChars = "ｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789{}[]<>()=-+*%/&?;:$@!#";
+        const characterSet = rawChars.split("");
+        
+        const mouse = { x: -1000, y: -1000, active: false };
+
+        function setSizes() {
+          width = canvas.width = window.innerWidth;
+          height = canvas.height = window.innerHeight;
+          columns = Math.ceil(width / fontSize);
+          
+          drops = [];
+          speeds = [];
+          opacityList = [];
+          
+          for (let i = 0; i < columns; i++) {
+            drops[i] = Math.random() * -100;
+            speeds[i] = Math.random() * 0.45 + 0.3;
+            opacityList[i] = Math.random() * 0.4 + 0.3;
+          }
+        }
+        
+        setSizes();
+        window.addEventListener("resize", setSizes);
+
+        window.addEventListener("mousemove", (e) => {
+          const rect = canvas.getBoundingClientRect();
+          mouse.x = e.clientX - rect.left;
+          mouse.y = e.clientY - rect.top;
+          mouse.active = true;
+        });
+
+        window.addEventListener("mouseleave", () => {
+          mouse.active = false;
+          mouse.x = -1000;
+          mouse.y = -1000;
+        });
+
+        let lastTime = 0;
+        const fpsInterval = 1000 / 30;
+
+        function drawRain(timestamp) {
+          requestAnimationFrame(drawRain);
+          
+          const elapsed = timestamp - lastTime;
+          if (elapsed < fpsInterval) return;
+          lastTime = timestamp - (elapsed % fpsInterval);
+
+          ctx.fillStyle = "rgba(3, 7, 18, 0.08)";
+          ctx.fillRect(0, 0, width, height);
+
+          ctx.font = `${fontSize}px monospace`;
+
+          for (let i = 0; i < columns; i++) {
+            const x = i * fontSize;
+            const currentY = Math.floor(drops[i]) * fontSize;
+
+            if (currentY >= 0 && currentY < height + fontSize) {
+              const char = characterSet[Math.floor(Math.random() * characterSet.length)];
+              let isGlow = false;
+
+              if (mouse.active) {
+                const distance = Math.hypot(x - mouse.x, currentY - mouse.y);
+                if (distance < 130) {
+                  isGlow = true;
+                }
+              }
+
+              const shimmer = Math.sin(i * 0.15 + drops[i] * 0.08) * 0.5 + 0.5;
+
+              if (isGlow) {
+                ctx.fillStyle = "rgba(165, 243, 252, 0.95)";
+                ctx.shadowColor = "#06b6d4";
+                ctx.shadowBlur = 8;
+              } else {
+                ctx.shadowBlur = 0;
+                if (Math.random() > 0.985) {
+                  ctx.fillStyle = "rgba(255, 255, 255, 0.95)";
+                } else {
+                  const r = Math.floor(14 + shimmer * 45);
+                  const g = Math.floor(102 + shimmer * 80);
+                  const b = Math.floor(216 + shimmer * 39);
+                  ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${opacityList[i]})`;
+                }
+              }
+
+              ctx.fillText(char, x, currentY);
+              ctx.shadowBlur = 0;
+            }
+
+            drops[i] += speeds[i];
+
+            if (drops[i] * fontSize > height && Math.random() > 0.985) {
+              drops[i] = -15;
+              speeds[i] = Math.random() * 0.45 + 0.3;
+              opacityList[i] = Math.random() * 0.4 + 0.3;
+            }
+          }
+        }
+
+        requestAnimationFrame(drawRain);
+      }
+
+      // INITIAL ASSEMBLY TRIGGERS ON WINDOW LOAD
+      window.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+        startPreloader();
+        changeLanguage("ru");
+      });
+    </script>
+  </body>
+</html>
